@@ -88,11 +88,11 @@ class CarController:
       addr, bus = 0x7d0, 0
       if self.CP.flags & HyundaiFlags.CANFD_HDA2.value:
         addr, bus = 0x730, self.CAN.ECAN
-      can_sends.append([addr, 0, b"\x02\x3E\x80\x00\x00\x00\x00\x00", bus])
+      can_sends.append([addr, 0, b"\x02\x3E\x00\x00\x00\x00\x00\x00", bus])
 
       # for blinkers
       if self.CP.flags & HyundaiFlags.ENABLE_BLINKERS:
-        can_sends.append([0x7b1, 0, b"\x02\x3E\x80\x00\x00\x00\x00\x00", self.CAN.ECAN])
+        can_sends.append([0x7b1, 0, b"\x02\x3E\x00\x00\x00\x00\x00\x00", self.CAN.ECAN])
 
     # >90 degree steering fault prevention
     # Count up to MAX_ANGLE_FRAMES, at which point we need to cut torque to avoid a steering fault
