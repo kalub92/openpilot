@@ -304,11 +304,11 @@ class CarInterface(CarInterfaceBase):
   @staticmethod
   def init(CP, logcan, sendcan):
     if CP.openpilotLongitudinalControl and not (CP.flags & HyundaiFlags.CANFD_CAMERA_SCC.value):
-      addr, bus = 0x7d1, 0
+      addr, bus = 0x7d1, 1
       if CP.flags & HyundaiFlags.CANFD_HDA2.value:
         addr, bus = 0x730, CanBus(CP).ECAN
       disable_ecu(logcan, sendcan, bus=bus, addr=addr, com_cont_req=b'\x28\x03\x01')
-      disable_ecu(logcan, sendcan, bus=bus, addr=0x7d0, com_cont_req=b'\x28\x03\x01')
+      disable_ecu(logcan, sendcan, bus=1, addr=0x7d0, com_cont_req=b'\x28\x03\x01')
 
     # for blinkers
     if CP.flags & HyundaiFlags.ENABLE_BLINKERS:
