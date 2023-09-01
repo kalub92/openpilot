@@ -317,7 +317,6 @@ class CarInterface(CarInterfaceBase):
       if CP.flags & HyundaiFlags.CANFD_HDA2.value:
         addr, bus = 0x730, CanBus(CP).ECAN
       disable_ecu(logcan, sendcan, bus=bus, addr=addr, com_cont_req=b'\x28\x03\x01')
-      disable_ecu(logcan, sendcan, bus=1, addr=0x7d0, com_cont_req=b'\x28\x03\x01')
 
     # for blinkers
     if CP.flags & HyundaiFlags.ENABLE_BLINKERS:
