@@ -96,7 +96,8 @@ class CarController:
       addr, bus = 0x7d0, 0
       if self.CP.flags & HyundaiFlags.CANFD_HDA2.value:
         addr, bus = 0x730, self.CAN.ECAN
-      can_sends.append([addr, 0, b"\x02\x3E\x80\x00\x00\x00\x00\x00", bus])
+      can_sends.append([addr, 1, b"\x02\x3E\x80\x00\x00\x00\x00\x00", bus])
+      can_sends.append([0x7c4, 0, b"\x02\x3E\x80\x00\x00\x00\x00\x00", bus])
 
       # for blinkers
       if self.CP.flags & HyundaiFlags.ENABLE_BLINKERS:
