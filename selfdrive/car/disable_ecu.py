@@ -7,7 +7,7 @@ EXT_DIAG_RESPONSE = b'\x50\x03'
 COM_CONT_RESPONSE = b'\x68\x03\x01'
 
 
-def disable_ecu(logcan, sendcan, bus=0, addr=0x7d0, sub_addr=None, com_cont_req=b'\x28\x03\x01', timeout=0.1, retry=10, debug=True):
+def disable_ecu(logcan, sendcan, bus=0, addr=0x7d0, sub_addr=None, com_cont_req=b'\x28\x03\x01', timeout=0.1, retry=10, debug=False):
   """Silence an ECU by disabling sending and receiving messages using UDS 0x28.
   The ECU will stay silent as long as openpilot keeps sending Tester Present.
 
