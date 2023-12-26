@@ -38,7 +38,7 @@ class CarControllerParams:
     # If the max stock LKAS request is <384, add your car to this list.
     elif CP.carFingerprint in (CAR.GENESIS_G80, CAR.GENESIS_G90, CAR.ELANTRA, CAR.ELANTRA_GT_I30, CAR.IONIQ,
                                CAR.IONIQ_EV_LTD, CAR.SANTA_FE_PHEV_2022, CAR.SONATA_LF, CAR.KIA_FORTE, CAR.KIA_NIRO_PHEV,
-                               CAR.KIA_OPTIMA_H, CAR.KIA_OPTIMA_H_G4_FL, CAR.KIA_SORENTO):
+                               CAR.KIA_OPTIMA_H, CAR.KIA_OPTIMA_H_G4_FL):
       self.STEER_MAX = 255
 
     # these cars have significantly more torque than most HKG; limit to 70% of max
@@ -512,7 +512,7 @@ LEGACY_SAFETY_MODE_CAR = {CAR.HYUNDAI_GENESIS, CAR.IONIQ_EV_LTD, CAR.KIA_OPTIMA_
                           CAR.KIA_OPTIMA_H, CAR.ELANTRA_GT_I30}
 
 # these cars have not been verified to work with longitudinal yet - radar disable, sending correct messages, etc.
-UNSUPPORTED_LONGITUDINAL_CAR = LEGACY_SAFETY_MODE_CAR | {CAR.KIA_NIRO_PHEV, CAR.KIA_SORENTO, CAR.SONATA_LF, CAR.KIA_OPTIMA_G4_FL,
+UNSUPPORTED_LONGITUDINAL_CAR = LEGACY_SAFETY_MODE_CAR | {CAR.KIA_NIRO_PHEV, CAR.SONATA_LF, CAR.KIA_OPTIMA_G4_FL,
                                                          CAR.KIA_OPTIMA_H_G4_FL}
 
 # If 0x500 is present on bus 1 it probably has a Mando radar outputting radar points.
