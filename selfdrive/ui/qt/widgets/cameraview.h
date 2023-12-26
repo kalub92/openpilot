@@ -65,12 +65,11 @@ protected:
   bool zoomed_view;
   GLuint frame_vao, frame_vbo, frame_ibo;
   GLuint textures[2];
-  mat4 frame_mat;
+  mat4 frame_mat = {};
   std::unique_ptr<QOpenGLShaderProgram> program;
   QColor bg = QColor("#000000");
 
 #ifdef QCOM2
-  EGLDisplay egl_display;
   std::map<int, EGLImageKHR> egl_images;
 #endif
 
